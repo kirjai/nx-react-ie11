@@ -4,13 +4,15 @@ import styles from './app.module.css';
 
 import { ReactComponent as Logo } from './logo.svg';
 import star from './star.svg';
+import { Xyz } from '@myorg-react/ui';
 
 export function App() {
   return (
     <div className={styles.app}>
       <header className="flex">
         <Logo width="75" height="75" />
-        <h1>Welcome to react-app!</h1>
+        <h1>Welcome to react-app!!!!</h1>
+        <Xyz />
       </header>
       <main>
         <h2>Resources &amp; Tools</h2>

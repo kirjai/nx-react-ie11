@@ -1,23 +1,12 @@
 {
   "version": 2,
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
+  "cli": { "defaultCollection": "@nrwl/react" },
   "defaultProject": "react-app",
   "generators": {
     "@nrwl/react": {
-      "application": {
-        "style": "css",
-        "linter": "eslint",
-        "babel": true
-      },
-      "component": {
-        "style": "css"
-      },
-      "library": {
-        "style": "css",
-        "linter": "eslint"
-      }
+      "application": { "style": "css", "linter": "eslint", "babel": true },
+      "component": { "style": "css" },
+      "library": { "style": "css", "linter": "eslint" }
     }
   },
   "projects": {
@@ -70,13 +59,9 @@
         },
         "serve": {
           "executor": "@nrwl/web:dev-server",
-          "options": {
-            "buildTarget": "react-app:build"
-          },
+          "options": { "buildTarget": "react-app:build" },
           "configurations": {
-            "production": {
-              "buildTarget": "react-app:build:production"
-            }
+            "production": { "buildTarget": "react-app:build:production" }
           }
         },
         "lint": {
@@ -108,15 +93,30 @@
             "devServerTarget": "react-app:serve"
           },
           "configurations": {
-            "production": {
-              "devServerTarget": "react-app:serve:production"
-            }
+            "production": { "devServerTarget": "react-app:serve:production" }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["apps/react-app-e2e/**/*.{js,ts}"] }
+        }
+      }
+    },
+    "ui": {
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["libs/ui/**/*.{ts,tsx,js,jsx}"] }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui"],
           "options": {
-            "lintFilePatterns": ["apps/react-app-e2e/**/*.{js,ts}"]
+            "jestConfig": "libs/ui/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
